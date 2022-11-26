@@ -1,0 +1,26 @@
+﻿@model prjMvc.Models.CCustomer
+@{
+    string photo = "anonymous.jpg";
+    if (Model != null)
+    {
+        photo = Model.fid + ".png";
+    }
+}
+
+
+<div>
+    <img src="~/images/@photo" width="20%" />
+</div>
+@{
+    if (Model != null)
+    {
+        <div>@Model.fName</div>
+        <div>
+            電話 : @Model.fPhone / 信箱 : @Model.fEmail
+        </div>
+    }
+    else
+    {
+        @:查無此資料
+    }
+}

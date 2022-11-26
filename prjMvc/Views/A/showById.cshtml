@@ -1,0 +1,28 @@
+﻿
+@{
+    string photo = "anonymous.jpg";
+    if (ViewBag.KK != null)
+    {
+        photo = ViewBag.KK.fid + ".png";
+    }
+}
+
+
+<div>
+    <img src="~/images/@photo" width="20%" />
+</div>
+@{
+    if (ViewBag.KK != null)
+    {
+        <div>@ViewBag.KK.fName</div>
+        <div>
+            電話 : @ViewBag.KK.fPhone / 信箱 : @ViewBag.KK.fEmail
+        </div>
+    }
+    else
+    {
+         @:查無此資料
+    }
+ }
+
+

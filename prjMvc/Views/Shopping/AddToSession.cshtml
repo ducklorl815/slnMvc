@@ -1,0 +1,40 @@
+﻿
+
+@{
+    ViewBag.Title = "AddToCart";
+}
+
+<h2>加入購物車</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <h4>tProduct</h4>
+        <hr />
+        <div class="form-group">
+            <input type="hidden" name="txtfid" value="@Model.fId" />
+            <div class="col-md-10">
+                數量<br />
+                @Html.TextBox("txtCount", "1", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-0 col-md-10">
+                <input type="submit" value="新增" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

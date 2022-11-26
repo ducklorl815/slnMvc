@@ -1,0 +1,47 @@
+﻿@model IEnumerable<prjMvc.Models.CShoppingCartItem>
+
+@{
+    ViewBag.Title = "檢視購物車";
+}
+
+<h2>CartView</h2>
+
+<p>
+    @Html.ActionLink("結帳購物車", "CartView")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th></th>
+    </tr>
+
+@{ int count = 0;
+    foreach (var item in Model)
+    {
+        count++;
+    <tr>
+        <td>
+            @count
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.ActionLink("修改數量", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("取消", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+        }
+    }
+</table>
